@@ -1,2 +1,59 @@
 # Oversee.github.io
 サーバー管理のため
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Blender Material in A-Frame</title>
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body>
+
+<a-scene background="color: #ECECEC">
+
+  <!-- アセット -->
+  <a-assets>
+    <a-asset-item
+      id="castleModel"
+      src="castle.glb">
+    </a-asset-item>
+  </a-assets>
+
+  <!-- ライト -->
+  <a-entity
+    light="type: ambient; intensity: 0.8">
+  </a-entity>
+
+  <a-entity
+    light="type: directional;
+           intensity: 1.2;
+           castShadow: true"
+    position="5 10 7">
+  </a-entity>
+
+  <!-- 地面 -->
+  <a-plane
+    rotation="-90 0 0"
+    width="100"
+    height="100"
+    color="#7CB342">
+  </a-plane>
+
+  <!-- Blenderモデル -->
+  <a-entity
+    gltf-model="#castleModel"
+    position="0 0 -8"
+    scale="1 1 1"
+    rotation="0 45 0">
+  </a-entity>
+
+  <!-- カメラ -->
+  <a-entity position="0 2 5">
+    <a-camera wasd-controls look-controls></a-camera>
+  </a-entity>
+
+</a-scene>
+
+</body>
+</html>
